@@ -1,4 +1,5 @@
-<?= view('layout/header') ?>
+<?= $this->extend('layout/template') ?>
+<?= $this->section('main') ?>
 
 
 <div class="container-xxl flex-grow-1 container-p-y">
@@ -756,4 +757,5 @@
     </div>
 </div>
 
-<?= view('layout/footer') ?>
+
+<?= $this->endSection() ?>

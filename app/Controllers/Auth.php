@@ -4,6 +4,11 @@ namespace App\Controllers;
 
 class Auth extends BaseController
 {
+    public function __construct()
+    {
+        $this->DataTables = new DataTables();
+    }
+
     public function index(): string
     {
         return view('auth/content/login');
@@ -13,4 +18,6 @@ class Auth extends BaseController
     {
         return view('auth/content/register');
     }
+
+    
 }

@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Libraries\DataTables;
+use App\Models\UsersModel;
+use \Hermawan\DataTables\DataTable;
 
 class Users extends BaseController
 {
@@ -15,16 +18,13 @@ class Users extends BaseController
         return view('user/data');
     }
 
-    public function data_sample()
+    public function data()
     {
-        // sql query
-        $query = "SELECT * FROM users";
-        // $where  = array('nama_kategori' => 'Tutorial');
-        $where  = null; 
-        // jika memakai IS NULL pada where sql
-        $isWhere = null;
-        // $isWhere = 'artikel.deleted_at IS NULL';
-        $search = array('name','email','username');
-        echo $this->DataTables->BuildDatatables($query, $where, $isWhere, $search);
+        $db = db_connect();
+        $builder = $db->table('users')->select('name, email, phone, address,id');
+
+        return DataTable::of($builder)
+            ->addNumbering() //it will return data output with numbering on first column
+            ->toJson();
     }
 }

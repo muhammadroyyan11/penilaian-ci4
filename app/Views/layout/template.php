@@ -20,6 +20,8 @@
 
     <!-- Icons -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/fonts/fontawesome.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/fonts/tabler-icons.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/fonts/flag-icons.css" />
 
@@ -34,22 +36,21 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/typeahead-js/typeahead.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/apex-charts/apex-charts.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/swiper/swiper.css" />
-    <!-- <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/datatables-bs5/datatables.bootstrap5.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/datatables-responsive-bs5/responsive.bootstrap5.css" />
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/datatables-checkboxes-jquery/datatables.checkboxes.css" />
-    <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" /> -->
-    <!-- DATATABLES BS 4-->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.7/css/responsive.bootstrap4.min.css" />
-
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/datatables-buttons-bs5/buttons.bootstrap5.css" />
+    
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/datatables-rowgroup-bs5/rowgroup.bootstrap5.css" />
     <!-- Page CSS -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/css/pages/cards-advance.css" />
     <!-- Helpers -->
     <script src="<?= base_url() ?>/assets/assets/vendor/js/helpers.js"></script>
+
+    
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
@@ -282,21 +283,18 @@
     <!-- Vendors JS -->
     <script src="<?= base_url() ?>/assets/assets/vendor/libs/apex-charts/apexcharts.js"></script>
     <script src="<?= base_url() ?>/assets/assets/vendor/libs/swiper/swiper.js"></script>
-    <script src="<?= base_url() ?>/assets/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
 
     <!-- Main JS -->
+    <script src="<?= base_url() ?>/assets/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
     <script src="<?= base_url() ?>/assets/assets/js/main.js"></script>
 
     <!-- Page JS -->
     <script src="<?= base_url() ?>/assets/assets/js/dashboards-analytics.js"></script>
     <!-- Vendors JS -->
-    <script src="<?= base_url() ?>/assets/assets/vendor/libs/datatables-bs5/datatables-bootstrap5.js"></script>
     <!-- Page JS -->
     <!-- <script src="<?= base_url() ?>/assets/assets/js/tables-datatables-basic.js"></script> -->
-    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap4.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.7/js/dataTables.responsive.min.js"></script>
-    <script src="https://cdn.datatables.net/responsive/2.2.7/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- <script src="<?= base_url() ?>js/user.js"></script> -->
 </body>
 
 </html>

@@ -115,7 +115,7 @@
                         <span class="menu-header-text">Master Data</span>
                     </li>
                     <li class="menu-item ">
-                        <a href="app-email.html" class="menu-link">
+                        <a href="<?= url_to('file')?>" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-file"></i>
                             <div data-i18n="File Manager">File Manager</div>
                         </a>
@@ -174,7 +174,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">John Doe</span>
+                                                    <span class="fw-semibold d-block">Name User</span>
                                                     <small class="text-muted">Admin</small>
                                                 </div>
                                             </div>
@@ -267,7 +267,8 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="<?= base_url() ?>/assets/assets/vendor/libs/jquery/jquery.js"></script>
+<!--    <script src="--><?php //= base_url() ?><!--/assets/assets/vendor/libs/jquery/jquery.js"></script>-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="<?= base_url() ?>/assets/assets/vendor/libs/popper/popper.js"></script>
     <script src="<?= base_url() ?>/assets/assets/vendor/js/bootstrap.js"></script>
     <script src="<?= base_url() ?>/assets/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
@@ -290,6 +291,33 @@
 
     <!-- Page JS -->
     <script src="<?= base_url() ?>/assets/assets/js/dashboards-analytics.js"></script>
+
+    <script>
+        $(function (){
+            $("#add_post_form").submit(function(e){
+                e.preventDefault();
+                const formData = new FormData(this);
+                if (!this.checkValidity()){
+                    e.preventDefault();
+                    $(this).addClass('was-validated')
+                } else {
+                    $("#add_post_btn").text("Adding...");
+                    $.ajax({
+                        url: '<?= base_url('/file/process')?>'
+                        method: 'POST',
+                        data: formData,
+                        contentType: false,
+                        cache: false,
+                        processData: false,
+                        success:function (response){
+                            console.log(response)
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+
     <!-- Vendors JS -->
     <!-- Page JS -->
     <!-- <script src="<?= base_url() ?>/assets/assets/js/tables-datatables-basic.js"></script> -->

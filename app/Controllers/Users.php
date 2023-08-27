@@ -4,7 +4,9 @@ namespace App\Controllers;
 
 use App\Libraries\DataTables;
 use App\Models\UsersModel;
+use CodeIgniter\Session\Session;
 use \Hermawan\DataTables\DataTable;
+use Myth\Auth\Config\Auth as AuthConfig;
 
 class Users extends BaseController
 {
@@ -15,6 +17,7 @@ class Users extends BaseController
 
     public function index(): string
     {
+//        var_dump(user());
         return view('user/data');
     }
 

@@ -29,7 +29,9 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-
+$routes->get('/file/add', 'File::add');
+$routes->post('/file/add', 'File::process');
+$routes->post('/file/process', 'File::process');
 $routes->get('/user/list', 'Users::data');
 
 $routes->group('', ['filter' => 'login'], function ($routes) {
@@ -38,10 +40,13 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
 
     //USER
     $routes->get('/user', 'Users::index');
-    // $routes->post('/user/list', 'Users::data');
-
-    // $routes->get('user/list', 'UsersController::index');
     $routes->get('user/list', 'Users::data');
+
+    //FILE
+    $routes->get('/file', 'File::index');
+    $routes->post('/file/add', 'File::process');
+    $routes->get('/file/list', 'File::data');
+
 });
 
 /*

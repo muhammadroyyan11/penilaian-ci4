@@ -3,9 +3,7 @@
 namespace App\Controllers;
 
 use App\Libraries\DataTables;
-use App\Models\FileModel;
 use \Hermawan\DataTables\DataTable;
-use App\Controllers\BaseController;
 
 class File extends BaseController
 {
@@ -47,12 +45,12 @@ class File extends BaseController
                 'message' => $validation->getErrors()
             ]);
         } else{
-            $file->move('/uploads', $fileName);
+            $file->move('uploads/', $fileName);
             $postModel = new \App\Models\FileModel();
             $postModel->save($data);
             return $this->response->setJSON([
                 'error' => false,
-                'message' => 'Success'
+                'message' => 'success'
             ]);
         }
     }
@@ -62,8 +60,8 @@ class File extends BaseController
         $db = db_connect();
         $builder = $db->table('media as a')
             ->select('a.files_name, a.type, b.name, a.patch, a.id')
-            ->join('users as b', 'b.id = a.user_id');
-//            ->where('b.id', user_id());
+            ->join('users as b', 'b.id = a.user_id')
+            ->where('b.id', user_id());
 
 //        $db = db_connect();
 //        $builder = $db->table('media')->select('files_name, type, patch, id');

@@ -49,45 +49,14 @@
                     processData: false,
                     dataType: 'json',
                     success: function(response) {
-                        $("#add_post_btn").text("Add Post");
-
-                        if (response.error){
-                            $('#file').next().text(response.message.file);
-                        } else{
-                            response.message
+                        if (response.status == "success"){
+                            alert("Berhasil");
                         }
                     }
                 });
             }
         });
     });
-
-    function save()
-    {
-        $("#add_post_form").submit(function(e) {
-            e.preventDefault();
-            const formData = new FormData(this);
-            if (!this.checkValidity()) {
-                e.preventDefault();
-                $(this).addClass('was-validated')
-            } else {
-                $("#add_post_btn").text("Adding...");
-                $.ajax({
-                    url: '<?= base_url('file/process') ?>',
-                    method: 'POST',
-                    data: formData,
-                    contentType: false,
-                    cache: false,
-                    processData: false,
-                    dataType: 'json',
-                    success: function(response) {
-                        console.log(response)
-                        // $("#add_post_btn").text("Add Post");
-                    }
-                });
-            }
-        });
-    }
 </script>
 <!--/ Add New Credit Card Modal -->
 <?= $this->endSection() ?>

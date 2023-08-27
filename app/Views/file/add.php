@@ -12,9 +12,18 @@
                     <form action="#" method="POST" enctype="multipart/form-data" id="add_post_form" novalidate>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-fullname">File Type</label>
-                            <input type="text" id="file_type" name="file_type" class="form-control" id="basic-default-fullname" placeholder="File Type" required/>
+                            <input type="text" id="file_type" name="file_type" class="form-control" placeholder="File Type" required/>
                             <div class="invalid-feedback">File Type Required!</div>
                             <small>Eg : KTP, Ijazah, etc</small>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="country">Category</label>
+                            <select class="select2" name="category" id="category">
+                                <option label=" "></option>
+                                <option value="File Tetap">File Tetap</option>
+                                <option value="File Sementara">File Sementara</option>
+                            </select>
+                            <div class="invalid-feedback">File Type Required!</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="basic-default-company">Source File</label>

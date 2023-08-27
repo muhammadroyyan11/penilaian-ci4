@@ -7,7 +7,7 @@
         <!-- DataTable with Buttons -->
         <div class="card">
             <h5 class="card-header">
-                Table Basic
+                <?= $title ?>
                 <div class="float-end">
                     <a href="<?= site_url('file/add')?>" class="btn btn-primary btn-flat">
                         <i class="fa fa-plus"></i> Add

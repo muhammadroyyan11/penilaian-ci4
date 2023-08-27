@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Dashboard - Analytics | Vuexy - Bootstrap Admin Template</title>
+    <title><?= $title ?></title>
 
     <meta name="description" content="" />
 
@@ -50,7 +50,15 @@
     <!-- Helpers -->
     <script src="<?= base_url() ?>/assets/assets/vendor/js/helpers.js"></script>
 
-    
+    <!-- Vendors CSS -->
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/bs-stepper/bs-stepper.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/bootstrap-select/bootstrap-select.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/select2/select2.css" />
+    <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
+
+    <script src="<?= base_url() ?>/assets/assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
+
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
@@ -98,11 +106,23 @@
                             <div data-i18n="Dashboard">Dashboard</div>
                         </a>
                     </li>
-                    <li class="menu-item ">
-                        <a href="app-email.html" class="menu-link">
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-file-report"></i>
                             <div data-i18n="Permohonan">Permohonan</div>
                         </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="<?= url_to('cuti')?>" class="menu-link">
+                                    <div data-i18n="Layanan cuti">Layanan cuti</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="<?= url_to('cuti')?>" class="menu-link">
+                                    <div data-i18n="Permission">Permission</div>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="menu-item ">
                         <a href="app-email.html" class="menu-link">
@@ -291,7 +311,13 @@
 
     <!-- Page JS -->
     <script src="<?= base_url() ?>/assets/assets/js/dashboards-analytics.js"></script>
+    <script src="<?= base_url() ?>/assets/assets/vendor/libs/bootstrap-select/bootstrap-select.js"></script>
+    <script src="<?= base_url() ?>/assets/assets/vendor/libs/select2/select2.js"></script>
+    <script src="<?= base_url() ?>/assets/assets/vendor/libs/formvalidation/dist/js/FormValidation.min.js"></script>
+    <script src="<?= base_url() ?>/assets/assets/vendor/libs/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+    <script src="<?= base_url() ?>/assets/assets/vendor/libs/formvalidation/dist/js/plugins/AutoFocus.min.js"></script>
 
+    <script src="<?= base_url()?>js/form-cuti.js"></script>
     <script>
         $(function (){
             $("#add_post_form").submit(function(e){

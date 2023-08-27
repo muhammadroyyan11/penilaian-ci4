@@ -14,6 +14,7 @@ class CreateMediaTable extends Migration
             'files_name'            => ['type' => 'varchar', 'constraint' => 255],
             'patch'                 => ['type' => 'varchar', 'constraint' => 30, 'null' => true],
             'type'                  => ['type' => 'varchar', 'constraint' => 50],
+            'category'              => ['type' => 'varchar', 'constraint' => 50, 'null' => true],
             'user_id'               => ['type' => 'int', 'constraint' => 11, 'null' => true],
             'created_at'            => ['type' => 'datetime', 'null' => true],
             'updated_at'            => ['type' => 'datetime', 'null' => true],

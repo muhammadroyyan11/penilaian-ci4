@@ -14,12 +14,18 @@ class File extends BaseController
 
     public function index(): string
     {
-        return view('file/data');
+        $data = [
+            'title' => 'File Manager'
+        ];
+        return view('file/data', $data);
     }
 
     public function add(): string
     {
-        return view('file/add');
+        $data = [
+            'title' => 'Add New File'
+        ];
+        return view('file/add', $data);
     }
 
     public function process(){
@@ -31,6 +37,7 @@ class File extends BaseController
         $data = [
             'type' => $this->request->getPost('file_type'),
             'patch' => 'uploads/',
+            'category' => $this->request->getPost('category'),
             'user_id' => user_id(),
             'files_name' => $fileName
         ];
@@ -63,8 +70,6 @@ class File extends BaseController
             ->join('users as b', 'b.id = a.user_id')
             ->where('b.id', user_id());
 
-//        $db = db_connect();
-//        $builder = $db->table('media')->select('files_name, type, patch, id');
 
         return DataTable::of($builder)
             ->add('action', function ($row) {

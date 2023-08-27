@@ -47,6 +47,10 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
     $routes->post('/file/add', 'File::process');
     $routes->get('/file/list', 'File::data');
 
+    //Pengajuan Form
+    $routes->get('/cuti', 'Form::cuti');
+    $routes->post('/cuti', 'Form::process_cuti');
+
 });
 
 /*

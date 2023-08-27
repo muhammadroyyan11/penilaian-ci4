@@ -17,8 +17,11 @@ class Users extends BaseController
 
     public function index(): string
     {
+        $data = [
+            'title' => 'Management Users'
+        ];
 //        var_dump(user());
-        return view('user/data');
+        return view('user/data' , $data);
     }
 
     public function data()

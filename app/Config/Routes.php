@@ -44,6 +44,10 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
     $routes->post('/file/add', 'File::process');
     $routes->get('/file/list', 'File::data');
 
+    //history pengajuan
+    $routes->get('/history', 'History::index');
+    $routes->get('/history/list', 'History::data');
+
     //Pengajuan Form
     $routes->get('/cuti', 'Form::cuti');
     $routes->post('Form/process_cuti', 'Form::process_cuti');

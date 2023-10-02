@@ -92,7 +92,7 @@ class Form extends BaseController
             $post_attach ->insert($paramsDetail);
             $view = [
                 'success'   => "data tersebut berhasil ditambahkan",
-                'redirect'  => base_url('cuti')
+                'redirect'  => base_url('history')
             ];
 
             echo json_encode($view);
@@ -129,7 +129,7 @@ class Form extends BaseController
                 'request_id'    => $return_id,
                 'file_id'       => $this->request->getPost('file_sementara')
             ];
-            $post_attach ->insert($paramsDetail);
+            $post_attach ->insert($paramsAttach);
 
             //return ajax coi
             $view = [

@@ -148,6 +148,12 @@
                             <div data-i18n="Log">Log</div>
                         </a>
                     </li>
+                    <li class="menu-item ">
+                        <a href="<?= url_to('history')?>" class="menu-link">
+                            <i class="menu-icon tf-icons ti ti-file-description"></i>
+                            <div data-i18n="History pengajuan">History pengajuan</div>
+                        </a>
+                    </li>
 
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Master Data</span>
@@ -162,13 +168,6 @@
                         </li>
                     <?php }
                     ?>
-
-                    <li class="menu-item ">
-                        <a href="app-email.html" class="menu-link">
-                            <i class="menu-icon tf-icons ti ti-file-description"></i>
-                            <div data-i18n="Form">Form</div>
-                        </a>
-                    </li>
                     <li class="menu-item ">
                         <a href="<?= url_to('user') ?>" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-users"></i>

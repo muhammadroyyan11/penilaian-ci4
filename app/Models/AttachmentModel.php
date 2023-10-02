@@ -7,7 +7,7 @@ use CodeIgniter\Model;
 class AttachmentModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'attachments';
+    protected $table            = 'attachment';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';

@@ -87,12 +87,19 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
+                        <?php
+                        $no = 1;
+                        foreach ($users as $data){ ?>
                             <tr>
-                                <td>Halo</td>
-                                <td>Halo</td>
-                                <td>Halo</td>
-                                <td>Halo</td>
+                                <td><?= $no++ ?></td>
+                                <td><?= $data->name?></td>
+                                <td></td>
+                                <td>
+                                    <a href="" class="btn btn-primary"><i class="tf-icons ti ti-file-description"></i></a>
+                                </td>
                             </tr>
+                        <?php }
+                        ?>
                         </tbody>
                     </table>
                 </div>
@@ -113,12 +120,19 @@
                         </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                        <tr>
-                            <td>Halo</td>
-                            <td>Halo</td>
-                            <td>Halo</td>
-                            <td>Halo</td>
-                        </tr>
+                        <?php
+                        $no = 1;
+                        foreach ($request as $data){ ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $data['name']?></td>
+                                <td><?= $data['form_type']?></td>
+                                <td>
+                                    <a href="" class="btn btn-primary"><i class="tf-icons ti ti-file-description"></i></a>
+                                </td>
+                            </tr>
+                        <?php }
+                        ?>
                         </tbody>
                     </table>
                 </div>

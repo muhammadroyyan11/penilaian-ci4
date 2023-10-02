@@ -19,7 +19,21 @@ class Dashboard extends BaseController
     }
     public function index()
     {
+        $user = new \App\Models\UserModel();
+        $request = new \App\Models\RequestModel();
         $data['title'] = 'Dashboard';
+
+        $getUsers = $user->where('pengantar_status', 0)->findAll();
+        $getNewReq = $request->select('users.name, request.form_type')
+                    ->join('users', 'request.user_id = users.id')
+                    ->where('request.status', 'Send')->findAll();
+
+        $data = [
+            'title'     => 'Dashboard',
+            'users'     => $getUsers,
+            'request'   => $getNewReq
+        ];
+//        var_dump($new);
         return view('dashboard/dashboard',$data);
     }
 }

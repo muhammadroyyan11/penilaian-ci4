@@ -121,4 +121,23 @@ class UserModel extends Model
             'password' => bin2hex(random_bytes(16)),
         ]);
     }
+
+    public function getDetail($id){
+        $this->builder->select('users.id as userid, username, email, users.name, nip, auth_groups.name as role');
+        $this->builder->from('users');
+        $this->builder->join('auth_groups_users', 'auth_groups_users.user_id = users.id');
+        $this->builder->join('auth_groups', 'auth_groups.id = auth_groups_users.group_id');
+        $this->builder->where('users.id', $id);
+        $query = $this->builder->get();
+
+        return $query->getRow();
+    }
+
+    public function get($id = false){
+        if($id === false){
+            return $this->findAll();
+        }else{
+            return $this->getWhere(['id' => $id]);
+        }
+    }
 }

@@ -58,7 +58,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/assets/vendor/libs/formvalidation/dist/css/formValidation.min.css" />
 
     <script src="<?= base_url() ?>/assets/assets/vendor/libs/bs-stepper/bs-stepper.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Template customizer: To hide customizer set displayCustomizer value false in config.js.  -->
@@ -84,7 +84,7 @@
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M7.77295 16.3566L23.6563 0H32V6.88383C32 6.88383 31.8262 9.17836 30.6591 10.4057L19.7824 22H13.6938L7.77295 16.3566Z" fill="#7367F0" />
                             </svg>
                         </span>
-                        <span class="app-brand-text demo menu-text fw-bold">Vuexy</span>
+                        <span class="app-brand-text demo menu-text fw-bold">E-Pelayanan</span>
                     </a>
 
                     <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto">
@@ -106,6 +106,7 @@
                             <div data-i18n="Dashboard">Dashboard</div>
                         </a>
                     </li>
+
                     <li class="menu-item">
                         <a href="javascript:void(0);" class="menu-link menu-toggle">
                             <i class="menu-icon tf-icons ti ti-file-report"></i>
@@ -116,6 +117,23 @@
                                 <a href="<?= url_to('cuti')?>" class="menu-link">
                                     <div data-i18n="Layanan cuti">Layanan cuti</div>
                                 </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="javascript:void(0);" class="menu-link menu-toggle">
+                                    <div data-i18n="Layanan mutasi">Layanan mutasi</div>
+                                </a>
+                                <ul class="menu-sub">
+                                    <li class="menu-item">
+                                        <a href="<?= url_to('mutasi-masuk-keluar')?>" class="menu-link">
+                                            <div data-i18n="Mutasi Masuk / Keluar">Mutasi Masuk / Keluar</div>
+                                        </a>
+                                    </li>
+                                    <li class="menu-item">
+                                        <a href="<?= url_to('mutasi-skpd')?>" class="menu-link">
+                                            <div data-i18n="Mutasi antar SKPD">Mutasi antar SKPD</div>
+                                        </a>
+                                    </li>
+                                </ul>
                             </li>
                             <li class="menu-item">
                                 <a href="<?= url_to('cuti')?>" class="menu-link">
@@ -134,12 +152,17 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Master Data</span>
                     </li>
-                    <li class="menu-item ">
-                        <a href="<?= url_to('file')?>" class="menu-link">
-                            <i class="menu-icon tf-icons ti ti-file"></i>
-                            <div data-i18n="File Manager">File Manager</div>
-                        </a>
-                    </li>
+                    <?php
+                    if (in_groups('user')){ ?>
+                        <li class="menu-item ">
+                            <a href="<?= url_to('file')?>" class="menu-link">
+                                <i class="menu-icon tf-icons ti ti-file"></i>
+                                <div data-i18n="File Manager">File Manager</div>
+                            </a>
+                        </li>
+                    <?php }
+                    ?>
+
                     <li class="menu-item ">
                         <a href="app-email.html" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-file-description"></i>
@@ -181,18 +204,13 @@
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src="<?= base_url() ?>/assets/assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
+                                        <img src="<?= base_url() ?>/assets/assets/img/avatars/user.png" alt class="h-auto rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
                                         <a class="dropdown-item" href="pages-account-settings-account.html">
                                             <div class="d-flex">
-                                                <div class="flex-shrink-0 me-3">
-                                                    <div class="avatar avatar-online">
-                                                        <img src="<?= base_url() ?>/assets/assets/img/avatars/1.png" alt class="h-auto rounded-circle" />
-                                                    </div>
-                                                </div>
                                                 <div class="flex-grow-1">
                                                     <span class="fw-semibold d-block">Name User</span>
                                                     <small class="text-muted">Admin</small>
@@ -255,7 +273,6 @@
                                     <script>
                                         document.write(new Date().getFullYear());
                                     </script>
-                                    , made with ❤️ by <a href="https://pixinvent.com" target="_blank" class="fw-semibold">Pixinvent</a>
                                 </div>
                                 <div>
                                     <a href="https://themeforest.net/licenses/standard" class="footer-link me-4" target="_blank">License</a>
@@ -288,7 +305,7 @@
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
 <!--    <script src="--><?php //= base_url() ?><!--/assets/assets/vendor/libs/jquery/jquery.js"></script>-->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<!--    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
     <script src="<?= base_url() ?>/assets/assets/vendor/libs/popper/popper.js"></script>
     <script src="<?= base_url() ?>/assets/assets/vendor/js/bootstrap.js"></script>
     <script src="<?= base_url() ?>/assets/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>

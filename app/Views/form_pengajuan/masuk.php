@@ -52,10 +52,8 @@
                 </div>
             </div>
             <div class="bs-stepper-content">
-<!--                <form method="POST" enctype="multipart/form-data" id="add_cuti_request" novalidate>-->
+                <form method="POST" enctype="multipart/form-data" id="add_cuti_request" novalidate>
                     <!-- Personals Details -->
-                <?= form_open('Form/process_cuti', ['id' => 'form_tambah']) ?>
-                <?= csrf_field() ?>
                     <div id="personal-info" class="content">
                         <div class="content-header mb-3">
                             <h6 class="mb-0">Personal Info</h6>
@@ -181,7 +179,7 @@
                             </div>
                         </div>
                     </div>
-                <?= form_close() ?>
+                </form>
             </div>
         </div>
     </div>
@@ -189,45 +187,33 @@
 </div>
 
 <script>
-    // Ketika document sudah ready
-    $(document).ready(function() {
-        // Jika form tersubmit
-        $('#form_tambah').submit(function(e) {
-            console.log($(this).serialize())
-            console.log($(this).attr('action'))
+    import {$} from "../../../public/assets/libs/jquery/jquery";
+
+    $(function() {
+         //add new post ajax request
+        $("#add_cuti_request").submit(function(e) {
             e.preventDefault();
+            const formData = new FormData(this);
+            if (!this.checkValidity()) {
+                // e.preventDefault();
+            } else {
+                e.preventDefault();
 
-            $("#add_post_btn").text("Adding...")
-
-            $.ajax({
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                dataType: 'json',
-                method: 'post',
-                success: function(response) {
-                    if (response.success) {
-                        window.location.href = response.redirect;
-                    } else {
-                        alert('gagal')
+                $("#add_post_btn").text("Adding...");
+                $.ajax({
+                    url: '<?= base_url('cuti/add') ?>',
+                    method: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data.message)
                     }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    $('#error_message').html(
-                        `<strong>${xhr.status + ' ' + thrownError}</strong>
-                        <br>
-                        <div class="card mt-2">
-                            <div class="card-body">
-                                ${xhr.responseText}
-                            </div>
-                        </div>`
-                    );
-                    $('#error_modal').modal('show');
-                }
-            })
-            return false;
-        })
-    })
+                });
+            }
+        });
+    });
 </script>
+
 
 <!--/ Add New Credit Card Modal -->
 <?= $this->endSection() ?>

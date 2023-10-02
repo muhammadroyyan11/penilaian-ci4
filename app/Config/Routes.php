@@ -15,26 +15,23 @@ $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
-// The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
-// where controller filters or CSRF protection are bypassed.
-// If you don't want to define all routes, please use the Auto Routing (Improved).
-// Set `$autoRoutesImproved` to true in `app/Config/Feature.php` and set the following to true.
-// $routes->setAutoRoute(false);
-
 /*
  * --------------------------------------------------------------------
  * Route Definitions
  * --------------------------------------------------------------------
  */
 
-// We get a performance increase by specifying the default
-// route since we don't have to scan directories.
-$routes->get('/file/add', 'File::add');
-$routes->post('/file/add', 'File::process');
-$routes->post('/file/process', 'File::process');
-$routes->get('/user/list', 'Users::data');
-
 $routes->group('', ['filter' => 'login'], function ($routes) {
+    $routes->get('/file/add', 'File::add');
+    $routes->post('/file/add', 'File::process');
+    $routes->post('/file/process', 'File::process');
+
+    //user
+    $routes->get('/user/list', 'Users::data');
+//    $routes->get('/user/detail', 'Users::detail');
+    $routes->get('/user/(:num)', 'Users::detail/$1');
+
+
     $routes->get('/', 'Home::index');
     $routes->get('/home', 'Home::index');
 
@@ -49,7 +46,14 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
 
     //Pengajuan Form
     $routes->get('/cuti', 'Form::cuti');
-    $routes->post('/cuti', 'Form::process_cuti');
+    $routes->post('Form/process_cuti', 'Form::process_cuti');
+
+    //Pengajuan Mutasi
+    $routes->get('/mutasi-masuk-keluar', 'Form::masuk');
+
+    //1. Masuk / Keluar
+    $routes->get('/mutasi-skpd', 'Form::skpd');
+    $routes->get('/cuti/add', 'Form::process_cuti');
 
 });
 

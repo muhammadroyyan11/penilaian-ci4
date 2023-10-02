@@ -17,45 +17,43 @@
                 <div class="line">
                     <i class="ti ti-chevron-right"></i>
                 </div>
-                <div class="step" data-target="#cuti-type">
+                <div class="step" data-target="#permohonan-pribadi">
                     <button type="button" class="step-trigger">
                         <span class="bs-stepper-circle">2</span>
                         <span class="bs-stepper-label">
-                            <span class="bs-stepper-title">Cuti Type</span>
-                            <span class="bs-stepper-subtitle">Chosee Type</span>
+                            <span class="bs-stepper-title">Surat Pemohonan Pribadi</span>
+                            <span class="bs-stepper-subtitle">Chosee File</span>
                           </span>
                     </button>
                 </div>
                 <div class="line">
                     <i class="ti ti-chevron-right"></i>
                 </div>
-                <div class="step" data-target="#reason-date">
+                <div class="step" data-target="#sk">
                     <button type="button" class="step-trigger">
                         <span class="bs-stepper-circle">3</span>
+                        <span class="bs-stepper-label">
+                            <span class="bs-stepper-title">SK</span>
+                            <span class="bs-stepper-subtitle">Chosee File</span>
+                          </span>
+                    </button>
+                </div>
+                <div class="line">
+                    <i class="ti ti-chevron-right"></i>
+                </div>
+                <div class="step" data-target="#analisis">
+                    <button type="button" class="step-trigger">
+                        <span class="bs-stepper-circle">4</span>
                         <span class="bs-stepper-label">
                             <span class="bs-stepper-title">Date & Reason</span>
                             <span class="bs-stepper-subtitle">Chosee Type</span>
                           </span>
                     </button>
                 </div>
-                <div class="line">
-                    <i class="ti ti-chevron-right"></i>
-                </div>
-                <div class="step" data-target="#file-attch">
-                    <button type="button" class="step-trigger">
-                        <span class="bs-stepper-circle">4</span>
-                        <span class="bs-stepper-label">
-                            <span class="bs-stepper-title">File Attchment</span>
-                            <span class="bs-stepper-subtitle">Input Your File Attchment</span>
-                          </span>
-                    </button>
-                </div>
             </div>
             <div class="bs-stepper-content">
-<!--                <form method="POST" enctype="multipart/form-data" id="add_cuti_request" novalidate>-->
+                <form method="POST" enctype="multipart/form-data" id="add_cuti_request" novalidate>
                     <!-- Personals Details -->
-                <?= form_open('Form/process_cuti', ['id' => 'form_tambah']) ?>
-                <?= csrf_field() ?>
                     <div id="personal-info" class="content">
                         <div class="content-header mb-3">
                             <h6 class="mb-0">Personal Info</h6>
@@ -92,23 +90,21 @@
                         </div>
                     </div>
                     <!-- Social Links -->
-                    <div id="cuti-type" class="content">
+                    <div id="permohonan-pribadi" class="content">
                         <div class="content-header mb-3">
-                            <h6 class="mb-0">Cuti Type</h6>
-                            <small>Chosee One Cuti Type.</small>
+                            <h6 class="mb-0">Surat Pemohonan Pribadi</h6>
+                            <small>Chosee File.</small>
                         </div>
                         <div class="row g-3">
                             <div class="col-sm-12">
-                                <label class="form-label" for="country">Type</label>
-                                <select class="select2" id="jenis_cuti" name="jenis_cuti">
+                                <label class="form-label" for="country">File</label>
+                                <select class="select2" id="permohonan_pribadi" name="permohonan_pribadi">
                                     <option label=" "></option>
-                                    <option value="Cuti Tahunan">Cuti Tahunan</option>
-                                    <option value="Cuti Besar">Cuti Besar</option>
-                                    <option value="Cuti Sakit">Cuti Sakit</option>
-                                    <option value="Cuti Melahirkan">Cuti Melahirkan</option>
-                                    <option value="Cuti Karena Alasan Penting">Cuti Karena Alasan Penting</option>
-                                    <option value="Cuti Bersama">Cuti Bersama</option>
-                                    <option value="Cuti Di Luar Tanggungan Negara">Cuti Di Luar Tanggungan Negara</option>
+                                    <?php
+                                    foreach ($sementara as $data): ?>
+                                        <option value="<?= $data['id']; ?>"><?= $data['type']; ?></option>
+                                    <?php endforeach
+                                    ?>
                                 </select>
                             </div>
                             <div class="col-12 d-flex justify-content-between">
@@ -124,23 +120,44 @@
                             </div>
                         </div>
                     </div>
-                    <div id="reason-date" class="content">
+                    <div id="sk" class="content">
                         <div class="content-header mb-3">
-                            <h6 class="mb-0">Personal Info</h6>
-                            <small>Enter Your Personal Info.</small>
+                            <h6 class="mb-0">SK</h6>
+                            <small>Chose File.</small>
                         </div>
                         <div class="row g-3">
-                            <div class="col-sm-6">
-                                <label class="form-label" for="first-name">Start Date</label>
-                                <input type="date" id="start_date" name="start_date" class="form-control" placeholder="John" />
-                            </div>
-                            <div class="col-sm-6">
-                                <label class="form-label" for="first-name">End Date</label>
-                                <input type="date" id="end_date" name="end_date" class="form-control" placeholder="John" />
+                            <div class="col-sm-12">
+                                <label class="form-label" for="country">SK CPNS</label>
+                                <select class="select2" id="cpns" name="cpns">
+                                    <option label=" "></option>
+                                    <?php
+                                    foreach ($sementara as $data): ?>
+                                        <option value="<?= $data['id']; ?>"><?= $data['type']; ?></option>
+                                    <?php endforeach
+                                    ?>
+                                </select>
                             </div>
                             <div class="col-sm-12">
-                                <label class="form-label" for="first-name">Reason</label>
-                                <textarea class="form-control" id="reason" name="reason" rows="3"></textarea>
+                                <label class="form-label" for="country">SK Pangkat Terakhir</label>
+                                <select class="select2" id="pangkat" name="pangkat">
+                                    <option label=" "></option>
+                                    <?php
+                                    foreach ($sementara as $data): ?>
+                                        <option value="<?= $data['id']; ?>"><?= $data['type']; ?></option>
+                                    <?php endforeach
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="form-label" for="country">SKP 1 Tahun terakhir</label>
+                                <select class="select2" id="skp" name="skp">
+                                    <option label=" "></option>
+                                    <?php
+                                    foreach ($sementara as $data): ?>
+                                        <option value="<?= $data['id']; ?>"><?= $data['type']; ?></option>
+                                    <?php endforeach
+                                    ?>
+                                </select>
                             </div>
                             <div class="col-12 d-flex justify-content-between">
                                 <button class="btn btn-label-secondary btn-prev">
@@ -154,15 +171,15 @@
                             </div>
                         </div>
                     </div>
-                    <div id="file-attch" class="content">
+                    <div id="analisis" class="content">
                         <div class="content-header mb-3">
-                            <h6 class="mb-0">Personal Info</h6>
-                            <small>Enter Your Personal Info.</small>
+                            <h6 class="mb-0">Surat & Analisis Jabatan</h6>
+                            <small>Chose File.</small>
                         </div>
                         <div class="row g-3">
                             <div class="col-sm-12">
-                                <label class="form-label" for="country">File</label>
-                                <select class="select2" id="file_sementara" name="file_sementara">
+                                <label class="form-label" for="country">Surat menerima dari instansi yang dituju</label>
+                                <select class="select2" id="menerima_instansi" name="menerima_instansi">
                                     <option label=" "></option>
                                     <?php
                                     foreach ($sementara as $data): ?>
@@ -171,7 +188,28 @@
                                     ?>
                                 </select>
                             </div>
-
+                            <div class="col-sm-12">
+                                <label class="form-label" for="country">Surat melepas dari instansi yang dituju</label>
+                                <select class="select2" id="melepas_instansi" name="melepas_instansi">
+                                    <option label=" "></option>
+                                    <?php
+                                    foreach ($sementara as $data): ?>
+                                        <option value="<?= $data['id']; ?>"><?= $data['type']; ?></option>
+                                    <?php endforeach
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="col-sm-12">
+                                <label class="form-label" for="country">Analisis Jabatan</label>
+                                <select class="select2" id="analisis" name="analisis">
+                                    <option label=" "></option>
+                                    <?php
+                                    foreach ($sementara as $data): ?>
+                                        <option value="<?= $data['id']; ?>"><?= $data['type']; ?></option>
+                                    <?php endforeach
+                                    ?>
+                                </select>
+                            </div>
                             <div class="col-12 d-flex justify-content-between">
                                 <button class="btn btn-label-secondary btn-prev">
                                     <i class="ti ti-arrow-left me-sm-1 me-0"></i>
@@ -181,7 +219,7 @@
                             </div>
                         </div>
                     </div>
-                <?= form_close() ?>
+                </form>
             </div>
         </div>
     </div>
@@ -189,45 +227,33 @@
 </div>
 
 <script>
-    // Ketika document sudah ready
-    $(document).ready(function() {
-        // Jika form tersubmit
-        $('#form_tambah').submit(function(e) {
-            console.log($(this).serialize())
-            console.log($(this).attr('action'))
+    import {$} from "../../../public/assets/libs/jquery/jquery";
+
+    $(function() {
+         //add new post ajax request
+        $("#add_cuti_request").submit(function(e) {
             e.preventDefault();
+            const formData = new FormData(this);
+            if (!this.checkValidity()) {
+                // e.preventDefault();
+            } else {
+                e.preventDefault();
 
-            $("#add_post_btn").text("Adding...")
-
-            $.ajax({
-                url: $(this).attr('action'),
-                data: $(this).serialize(),
-                dataType: 'json',
-                method: 'post',
-                success: function(response) {
-                    if (response.success) {
-                        window.location.href = response.redirect;
-                    } else {
-                        alert('gagal')
+                $("#add_post_btn").text("Adding...");
+                $.ajax({
+                    url: '<?= base_url('cuti/add') ?>',
+                    method: 'POST',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(data) {
+                        console.log(data.message)
                     }
-                },
-                error: function(xhr, ajaxOptions, thrownError) {
-                    $('#error_message').html(
-                        `<strong>${xhr.status + ' ' + thrownError}</strong>
-                        <br>
-                        <div class="card mt-2">
-                            <div class="card-body">
-                                ${xhr.responseText}
-                            </div>
-                        </div>`
-                    );
-                    $('#error_modal').modal('show');
-                }
-            })
-            return false;
-        })
-    })
+                });
+            }
+        });
+    });
 </script>
+
 
 <!--/ Add New Credit Card Modal -->
 <?= $this->endSection() ?>

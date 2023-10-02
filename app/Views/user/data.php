@@ -10,11 +10,12 @@
             <table class="datatables-basic table" id="usersList">
                 <thead>
                     <tr>
-                        <th>No</th>
+                        <th>Id</th>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
                         <th>Address</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
             </table>

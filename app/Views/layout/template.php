@@ -101,7 +101,7 @@
                         <span class="menu-header-text">Main Menu</span>
                     </li>
                     <li class="menu-item active">
-                        <a href="app-email.html" class="menu-link">
+                        <a href="<?= url_to('/')?>" class="menu-link">
                             <i class="menu-icon tf-icons ti ti-smart-home"></i>
                             <div data-i18n="Dashboard">Dashboard</div>
                         </a>
@@ -167,6 +167,7 @@
                             </a>
                         </li>
                     <?php }
+                    if (in_groups(['admin', 'pembantu'])){
                     ?>
                     <li class="menu-item ">
                         <a href="<?= url_to('user') ?>" class="menu-link">
@@ -174,6 +175,7 @@
                             <div data-i18n="Management Users">Management Users</div>
                         </a>
                     </li>
+                    <?php } ?>
 
                 </ul>
             </aside>

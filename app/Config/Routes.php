@@ -32,7 +32,7 @@ $routes->group('', ['filter' => 'login'], function ($routes) {
     $routes->get('/user/(:num)', 'Users::detail/$1');
 
 
-    $routes->get('/', 'Home::index');
+    $routes->get('/', 'Dashboard::index');
     $routes->get('/home', 'Home::index');
 
     //USER

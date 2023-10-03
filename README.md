@@ -1,62 +1,82 @@
-# CodeIgniter 4 Application Starter
+# Jobdesc
 
-## What is CodeIgniter?
+Proses Register:
+admin kantor verif & upload suarat pengantar -> 1 & 2
+admin pembantu  verifikasi Form -> 2
+user -> 3
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Proses bisnis singkat:
+Register->verif email->upload surat pengantar oleh(role: 1 & 2 dan tersimpan di file manager user 3)
+-> Upload pengajuan(Include / Validasi surat pengantar)->Review(role 1 / 2)
+-> Approval->notif to user 3
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+Form:
+Layanan cuti v -
+Layanan gaji berkala v -
+Layanan tugas belajar v -
+Layanan pensiun v -
+Layanan mutasi v
+-antar OPD  v -
+Layanan jabatan fungsional v
+=== Note halaman pertama pada
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+Table Utama Request:
+- Header = Table Request (Status dan type form)
+- relasi 1 = Detail berakhiran dengan "_form"
+- relasi 2 = Attachment (Masih error)
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
+Kondisi:
+Jika sudah di lakukan action approval oleh role 1 & 2 maka user tidak bisa edit form pengajuan
 
-## Installation & updates
+ToDo :
+- Register mailler Mythauth
+- Notify mailler admin & admin pembantu
+- management File -> get berdasarkan id user dan type file ?
+- Fix ajax file manager upload -> file type (Tetap, Sementara)
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+Finish:
+- templating
+- Konsep Auth -> Permission dan grouping
+- Full ajax processing (Ajax insert done) -> form cuti
+- History list
+- File manager list
+- datatables serverside (Sudah) (User, History)Proses Register:
+  admin kantor verif & upload suarat pengantar -> 1 & 2
+  admin pembantu  verifikasi Form -> 2
+  user -> 3
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+Proses bisnis singkat:
+Register->verif email->upload surat pengantar oleh(role: 1 & 2 dan tersimpan di file manager user 3)
+-> Upload pengajuan(Include / Validasi surat pengantar)->Review(role 1 / 2)
+-> Approval->notif to user 3
 
-## Setup
+Form:
+- Layanan cuti v -
+- Layanan gaji berkala v -
+- Layanan tugas belajar v -
+- Layanan pensiun v -
+- Layanan mutasi v
+antar OPD  v -
+- Layanan jabatan fungsional v
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+Table Utama Request:
+- Header = Table Request (Status dan type form)
+- relasi 1 = Detail berakhiran dengan "_form"
+- relasi 2 = Attachment (Masih error)
 
-## Important Change with index.php
+Kondisi:
+Jika sudah di lakukan action approval oleh role 1 & 2 maka user tidak bisa edit form pengajuan
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+ToDo :
+- Register mailler Mythauth
+- Notify mailler admin & admin pembantu
+- management File -> get berdasarkan id user dan type file ?
+- Fix ajax file manager upload -> file type (Tetap, Sementara)
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+Finish:
+- templating
+- Konsep Auth -> Permission dan grouping
+- Full ajax processing (Ajax insert done) -> form cuti
+- History list
+- File manager list
+- datatables serverside (Sudah) (User, History)

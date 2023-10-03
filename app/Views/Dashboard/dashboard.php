@@ -1,7 +1,9 @@
 <?= $this->extend('layout/template') ?>
 <?= $this->section('main') ?>
 
-
+<?php
+if(in_groups(['admin', 'pembantu'])){
+?>
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">
         <!-- Count User -->
@@ -15,7 +17,6 @@
                             </span>
                     </div>
                     <h5 class="card-title mb-0 mt-2 mb-4">9</h5>
-<!--                    <small style="margin-bottom: 10px;">Revenue Generated</small>-->
                 </div>
             </div>
         </div>
@@ -31,7 +32,6 @@
                             </span>
                     </div>
                     <h5 class="card-title mb-0 mt-2 mb-4">9</h5>
-                    <!--                    <small style="margin-bottom: 10px;">Revenue Generated</small>-->
                 </div>
             </div>
         </div>
@@ -47,7 +47,6 @@
                             </span>
                     </div>
                     <h5 class="card-title mb-0 mt-2 mb-4">9</h5>
-                    <!--                    <small style="margin-bottom: 10px;">Revenue Generated</small>-->
                 </div>
             </div>
         </div>
@@ -63,7 +62,6 @@
                             </span>
                     </div>
                     <h5 class="card-title mb-0 mt-2 mb-4">9</h5>
-                    <!--                    <small style="margin-bottom: 10px;">Revenue Generated</small>-->
                 </div>
             </div>
         </div>
@@ -140,6 +138,6 @@
         </div>
     </div>
 </div>
-
+<?php } ?>
 
 <?= $this->endSection() ?>
